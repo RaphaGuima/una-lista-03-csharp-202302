@@ -1,0 +1,34 @@
+Console.WriteLine("Insira o valor da compra: R$ ");
+double valorCompra = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Insira o valor pago: R$ ");
+double valorPago = Convert.ToDouble(Console.ReadLine());
+
+// if para SE o valor pago for MENOR que o valor da compra
+if (valorPago < valorCompra)
+{
+    Console.WriteLine("A quantia paga é insuficiente para realizar a compra.");
+    return;
+}
+
+double troco = valorPago - valorCompra;
+
+Console.WriteLine("Troco: R$ " + troco.ToString("0.00"));
+
+// Array com os valores das notas
+int[] notas = { 50, 20, 10, 5, 2, 1 };
+
+// foreach para percorerr o array e retornar as notas com o troco se for preciso
+// caso o troco retorne notas de diferentes valores, aperte 'enter' para aparecer as demais notas
+
+foreach (int nota in notas)
+{
+    int quantidadeNotas = (int)(troco / nota);
+
+    if (quantidadeNotas > 0)
+    {
+        Console.WriteLine("Notas de R$ " + nota + ": " + quantidadeNotas);
+        troco -= quantidadeNotas * nota;
+        Console.ReadLine();
+    }
+}
