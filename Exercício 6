@@ -1,0 +1,25 @@
+Console.WriteLine("Digite o primeiro número inteiro:");
+int n1 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Digite o segundo número inteiro:");
+int n2 = Convert.ToInt32(Console.ReadLine());
+
+int menorNumero = Math.Min(n1, n2);
+int maiorNumero = Math.Max(n1, n2);
+
+// Gera um número aleatório entre menorNumero e maiorNumero
+Random random = new Random();
+int numeroSorteado = random.Next(menorNumero, maiorNumero + 1);
+
+Console.WriteLine("Número sorteado: " + numeroSorteado);
+
+if (numeroSorteado % 2 == 0)
+{
+    Console.WriteLine("O número sorteado é par.");
+}
+else
+{
+    Console.WriteLine("O número sorteado é ímpar.");
+}
+
+Console.ReadLine();
